@@ -13,6 +13,24 @@ public class Polynom {
      }
      return new Polynom(coefArr);
  }
+
+ public static Polynom polynomMultToNumber(Polynom polynom, double number) {
+     double[] coefArr = new double[polynom.coef.length];
+     for(int i = 0; i < coefArr.length; i++) {
+         coefArr[i] = polynom.coef[i] * number;
+     }
+     return new Polynom(coefArr);
+ }
+
+ public static Polynom polynomMultiplication(Polynom polynom1, Polynom polynom2) {
+     double[] coefArr = new double[polynom1.coef.length + polynom2.coef.length];
+     for (int i = 0; i < polynom1.coef.length;i++) {
+         for (int j = 0; j < polynom2.coef.length; j++) {
+             coefArr[i+j] += polynom1.coef[i] * polynom2.coef[j];
+         }
+     }
+     return new Polynom(coefArr);
+ }
  
  @Override
  public String toString(){ 
